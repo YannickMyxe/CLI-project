@@ -35,7 +35,7 @@ namespace CLI
 		}
 
 		// * Try to run the given imput, returns a string depending on the command that was found
-		std::string runCommand(std::string input)
+		Errorcode runCommand(std::string input)
 		{
 			if (utils::compareBool(input, commands.echo.getName()))
 			{
@@ -47,10 +47,17 @@ namespace CLI
 				history.push(commands.hello.getName());
 				return commands.hello.execute();
 			}
+			else if (utils::compareBool(input, "error"))
+			{
+				history.push("error");
+				return Errorcode::error;
+			}
 			else
 			{
-				history.push("no command found, input: [" + input + "]");
-				return "No command found: [" + input + "];";
+				std::string notFound{ "no command found, input: [" + input + "]" };
+				history.push(notFound);
+				utils::print(notFound);
+				return Errorcode::none;
 			}
 		}
 
@@ -75,10 +82,11 @@ namespace CLI
 			}
 			else
 			{
-				output = runCommand(input);
-				utils::print(outputLine, false);
-				utils::print(output);
-
+				Errorcode err = runCommand(input);
+				if (err != Errorcode::none)
+				{
+					utils::printError("Error while running code");
+				}
 				return true;
 			}
 		}

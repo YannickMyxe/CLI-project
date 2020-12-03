@@ -17,7 +17,7 @@ public:
 
 	}
 
-	std::string execute(std::string text, bool purePrint = false)
+	Errorcode execute(std::string text, bool purePrint = false)
 	{
 		std::string output{};
 		if (!purePrint)
@@ -25,7 +25,8 @@ public:
 			output.append("Echo: ");
 		}
 		output.append(text);
-		return output;
+		utils::print(output);
+		return Errorcode::none;
 	}
 
 	std::string explenation()

@@ -87,4 +87,10 @@ namespace utils
 		}
 	}
 
+	void printError(std::string text)
+	{
+		print("ERROR: ", false);
+		print(text);
+	}
+
 }

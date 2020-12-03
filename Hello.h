@@ -16,10 +16,10 @@ public:
 
 	}
 
-	std::string execute()
+	Errorcode execute()
 	{
-		std::string output{ "Hello there! How are you doing today?" };
-		return output;
+		utils::print( "Hello there! How are you doing today?" );
+		return Errorcode::none;
 	}
 
 	std::string explenation()

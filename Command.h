@@ -3,6 +3,13 @@
 
 // Do not use utils in here: utils imports this library
 
+enum class Errorcode
+{
+	none,
+	error
+};
+
+
 class Command
 {
 public:
@@ -20,9 +27,10 @@ public:
 		return name;
 	}
 
-	virtual std::string execute()
+	virtual Errorcode execute()
 	{
-		return "Command execute of " + getName();
+		std::cout << ("Command execute of " + getName()) << std::endl;
+		return Errorcode::none;
 	}
 
 	virtual std::string explenation()
