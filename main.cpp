@@ -19,7 +19,6 @@ int main()
 
     // start Cli
     cli->start();
-
     // Running loop
     bool running{ true };
     while (running)
@@ -27,13 +26,10 @@ int main()
         running = cli->run();
     }
     utils::printNewLine(); // print out a new line
-    
     // Print out the history of all commands used
     cli->printHistory();
-
     // Closing program
     cli->end();
-
     // signal a non problematic run of the program
     return 0;
 }
