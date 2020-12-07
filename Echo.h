@@ -17,14 +17,21 @@ public:
 
 	}
 
-	Errorcode execute(std::string text, bool purePrint = false)
+	Errorcode execute(std::vector<std::string> commands, bool purePrint = false)
 	{
 		std::string output{};
 		if (!purePrint)
 		{
 			output.append("Echo: ");
 		}
-		output.append(text);
+
+		if (commands.size() < 2)
+			commands.push_back("");
+
+		for (int index{1}; index < commands.size(); ++index)
+		{
+			output.append(commands[index]);
+		}
 		utils::print(output);
 		return Errorcode::none;
 	}

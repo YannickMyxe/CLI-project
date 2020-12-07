@@ -11,6 +11,7 @@ int main()
 
     std::vector<Command*> Commands{};
     Commands.push_back(&cli->commands.echo);
+    Commands.push_back(&cli->commands.hello);
 
     utils::print("List of all commands: ");
     utils::printList(Commands);

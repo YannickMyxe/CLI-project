@@ -150,6 +150,7 @@
     <ClInclude Include="Hello.h" />
     <ClInclude Include="History.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="TodoList.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
