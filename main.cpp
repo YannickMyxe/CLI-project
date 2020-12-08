@@ -9,8 +9,7 @@ int main()
     CLI::CLI* cli{ new CLI::CLI{ username } };
     std::vector<CLI::procces*> processlist{};
 
-    utils::print("List of all commands: ");
-    utils::printList(cli->listOfCommands);
+    cli->printCommands();
     std::cout << "CLI initiated" << std::endl;
 
     // start Cli

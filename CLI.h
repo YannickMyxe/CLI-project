@@ -145,6 +145,12 @@ namespace CLI
 		Commandlist commands; // A list of all commands
 		std::vector<Command*> listOfCommands{};
 
+		void printCommands()
+		{
+			utils::print("List of all commands: ");
+			utils::printList(listOfCommands);
+		}
+
 	private:
 		std::string user; // used for the name of the user
 		std::string preline; // used to put something before every line
