@@ -86,14 +86,14 @@ namespace CLI
 			std::stringstream stringStream(input);
 			std::string segment;
 			std::vector<std::string> list;
-			char delimiter{'"'};
+			char delimiter{' '};
 
 			while (std::getline(stringStream, segment, delimiter))
 			{
 				list.push_back(segment);
 			}
 
-			utils::printList(list);
+			// utils::printList(list);
 
 			return list;
 		}
