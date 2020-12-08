@@ -9,12 +9,8 @@ int main()
     CLI::CLI* cli{ new CLI::CLI{ username } };
     std::vector<CLI::procces*> processlist{};
 
-    std::vector<Command*> Commands{};
-    Commands.push_back(&cli->commands.echo);
-    Commands.push_back(&cli->commands.hello);
-
     utils::print("List of all commands: ");
-    utils::printList(Commands);
+    utils::printList(cli->listOfCommands);
     std::cout << "CLI initiated" << std::endl;
 
     // start Cli

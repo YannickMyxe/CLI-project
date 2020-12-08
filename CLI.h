@@ -24,7 +24,10 @@ namespace CLI
 			, exit{ "exit" }
 			, history{}
 			, commands{}
+			, listOfCommands{}
 		{
+			listOfCommands.push_back(&commands.echo);
+			listOfCommands.push_back(&commands.hello);
 
 		}
 		~CLI()
@@ -140,6 +143,7 @@ namespace CLI
 		}
 
 		Commandlist commands; // A list of all commands
+		std::vector<Command*> listOfCommands{};
 
 	private:
 		std::string user; // used for the name of the user
