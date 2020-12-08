@@ -31,6 +31,7 @@ public:
 		for (int index{1}; index < commands.size(); ++index)
 		{
 			output.append(commands[index]);
+			output.append(" ");
 		}
 		utils::print(output);
 		return Errorcode::none;
