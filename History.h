@@ -39,6 +39,10 @@ public:
 		}
 	}
 
+	std::string getLastCommand()
+	{
+		return historyList.at(historyList.size() - 1);
+	}
 
 private:
 	std::vector<std::string> historyList;

@@ -151,6 +151,11 @@ namespace CLI
 			utils::printList(listOfCommands);
 		}
 
+		std::string getLastCommand()
+		{
+			return history.getLastCommand();
+		}
+
 	private:
 		std::string user; // used for the name of the user
 		std::string preline; // used to put something before every line
