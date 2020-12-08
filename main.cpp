@@ -25,6 +25,13 @@ int main()
     cli->printHistory();
     // Closing program
     cli->end();
+
+    std::string filename{ "Output/example.txt" };
+    utils::writeToFile(filename, "Welcome to this file");
+    utils::appendToFile(filename, "this is so much fun");
+    utils::printFile(filename);
+    
+
     // signal a non problematic run of the program
     return 0;
 }

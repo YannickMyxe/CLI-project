@@ -1,6 +1,7 @@
 #pragma once
 #include "includes.h"
 #include "Command.h"
+#include <fstream>
 
 namespace utils
 {
@@ -91,6 +92,46 @@ namespace utils
 	{
 		print("ERROR: ", false);
 		print(text);
+	}
+
+	void writeToFile(std::string filename, std::string text, bool newline = true)
+	{
+		std::ofstream myfile{};
+		utils::print("Writing to file: " + filename + ": " + text);
+		myfile.open(filename);
+		myfile << text;
+		if (newline) myfile << "\n";
+		myfile.close();
+	}
+
+	void printFile(std::string filename)
+	{
+		std::string line;
+		std::ifstream myfile(filename);
+		if (myfile.is_open())
+		{
+			print("Opening file with filename: " + filename);
+			while (getline(myfile, line))
+			{
+				print("\t" + line);
+			}
+			myfile.close();
+			print("End of file");
+		}
+		else
+		{
+			print("Unable to open file with name: " + filename);
+		}
+	}
+
+	void appendToFile(std::string filename, std::string text)
+	{
+		std::fstream myfile{ filename, std::ios::app };
+		std::string line{};
+		utils::print("Appending to file: " + filename + ": " + text);
+
+		myfile << text;
+
 	}
 
 }

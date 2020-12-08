@@ -28,7 +28,7 @@ public:
 		if (commands.size() < 2)
 			commands.push_back("");
 
-		for (int index{1}; index < commands.size(); ++index)
+		for (unsigned int index{1}; index < commands.size(); ++index)
 		{
 			output.append(commands[index]);
 			output.append(" ");
