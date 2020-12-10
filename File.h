@@ -11,7 +11,6 @@ public:
 		, fileLocation { storageLocation + filename}
 		, fileBackup{ read() }
 	{
-
 	}
 
 	~File()

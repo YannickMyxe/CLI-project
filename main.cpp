@@ -27,11 +27,13 @@ int main()
     // Closing program
     cli->end();
 
-   /* std::string filename{ "Output/example.txt" };
-    utils::writeToFile(filename, "Welcome to this file");
-    utils::appendToFile(filename, "this is so much fun");
-    utils::printFile(filename);
-   */
+    File fl{ "fl.txt", "Output/" };
+
+    if (fl.isWritable())
+    {
+        fl.write("The first line of the file is here.");
+        fl.append("This is the second line of the file");
+    }
 
     // signal a non problematic run of the program
     return 0;
