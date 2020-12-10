@@ -33,6 +33,7 @@ int main()
     {
         fl.write("The first line of the file is here.");
         fl.append("This is the second line of the file");
+        fl << "This is the third line of the file";
     }
 
     // signal a non problematic run of the program

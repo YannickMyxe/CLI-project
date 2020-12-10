@@ -41,10 +41,11 @@ public:
 	}
 
 	// Append a string to a file
-	void append(std::string text)
+	void append(std::string text, bool newline = true)
 	{
 		if(isWritable())
 			utils::appendToFile(fileLocation, text);
+		if (newline) utils::appendToFile(fileLocation, "\n");
 	}
 
 	// Append a list of strings to a file
@@ -108,6 +109,12 @@ public:
 	std::vector<std::string> getList()
 	{
 		return read();
+	}
+
+	File operator<<(std::string text)
+	{
+		append(text);
+		return *this;
 	}
 
 private:
