@@ -111,9 +111,31 @@ public:
 		return read();
 	}
 
+	// Works like the append function but with the << opperator
 	File operator<<(std::string text)
 	{
 		append(text);
+		return *this;
+	}
+
+	// Works like the append list function but with the << opperator
+	File operator<<(std::vector<std::string> list)
+	{
+		append(list);
+		return *this;
+	}
+
+	// Resets the document and adds a first line
+	File operator=(std::string text)
+	{
+		write(text);
+		return *this;
+	}
+
+	// Resets the document and adds a first line
+	File operator=(std::vector<std::string> list)
+	{
+		write(list);
 		return *this;
 	}
 

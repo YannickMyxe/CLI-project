@@ -34,6 +34,13 @@ int main()
         fl.write("The first line of the file is here.");
         fl.append("This is the second line of the file");
         fl << "This is the third line of the file";
+        fl = "This is a new start";
+        fl << "Second line" << "Third line";
+        std::vector<std::string> lst {};
+        lst.push_back("Wow fourth line!");
+        lst.push_back("wow another line!?");
+        lst.push_back("sixth line now? already six lines?");
+        fl << lst;
     }
 
     // signal a non problematic run of the program
