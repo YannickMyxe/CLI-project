@@ -2,6 +2,7 @@
 #include "includes.h"
 #include "CommandList.h"
 #include "History.h"
+#include "File.h"
 
 #include <algorithm>
 #include <cctype>
@@ -77,6 +78,7 @@ namespace CLI
 			std::cout << "Closing CLI..." << std::endl;
 		}
 
+		// Return a vector of strings of the given input
 		std::vector<std::string> getCommandsList(std::string input)
 		{
 			// Puts the input line into lowercase
@@ -143,17 +145,25 @@ namespace CLI
 		}
 
 		Commandlist commands; // A list of all commands
-		std::vector<Command*> listOfCommands{};
+		std::vector<Command*> listOfCommands{}; // A list of all the commands
 
+		// Print all the commands
 		void printCommands()
 		{
 			utils::print("List of all commands: ");
 			utils::printList(listOfCommands);
 		}
 
+		// Return the name of the last command
 		std::string getLastCommand()
 		{
 			return history.getLastCommand();
+		}
+
+		// Log something to the log file [date - time not added yet]
+		void log(std::string text)
+		{
+			utils::appendToFile("logs/log.txt", text);
 		}
 
 	private:

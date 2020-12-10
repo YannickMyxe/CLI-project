@@ -147,6 +147,7 @@
     <ClInclude Include="Echo.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="CLI.h" />
+    <ClInclude Include="File.h" />
     <ClInclude Include="Hello.h" />
     <ClInclude Include="History.h" />
     <ClInclude Include="includes.h" />

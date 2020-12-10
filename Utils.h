@@ -88,12 +88,14 @@ namespace utils
 		}
 	}
 
+	// Print out an error
 	void printError(std::string text)
 	{
 		print("ERROR: ", false);
 		print(text);
 	}
 
+	// Write specified text to a file
 	void writeToFile(std::string filename, std::string text, bool newline = true)
 	{
 		std::ofstream myfile{};
@@ -104,6 +106,7 @@ namespace utils
 		myfile.close();
 	}
 
+	// Print the content of a file
 	void printFile(std::string filename)
 	{
 		std::string line;
@@ -124,6 +127,7 @@ namespace utils
 		}
 	}
 
+	// Add text to a specified file
 	void appendToFile(std::string filename, std::string text)
 	{
 		std::fstream myfile{ filename, std::ios::app };
@@ -131,7 +135,25 @@ namespace utils
 		utils::print("Appending to file: " + filename + ": " + text);
 
 		myfile << text;
+		myfile.close();
+	}
 
+	// Give a vector of strings with the content of a given filename
+	std::vector<std::string> readFile(std::string filename)
+	{
+		std::fstream myfile{filename};
+		std::string line{};
+		std::vector<std::string> fileContent{};
+
+		if (myfile.is_open())
+		{
+			while (std::getline(myfile, line))
+			{
+				fileContent.push_back(line);
+			}
+		}
+		myfile.close();
+		return fileContent;
 	}
 
 }
