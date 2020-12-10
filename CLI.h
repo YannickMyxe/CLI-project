@@ -26,6 +26,7 @@ namespace CLI
 			, history{}
 			, commands{}
 			, listOfCommands{}
+			, logs{ "log.txt", "Logs/" }
 		{
 			listOfCommands.push_back(&commands.echo);
 			listOfCommands.push_back(&commands.hello);
@@ -163,7 +164,19 @@ namespace CLI
 		// Log something to the log file [date - time not added yet]
 		void log(std::string text)
 		{
-			utils::appendToFile("logs/log.txt", text);
+			logs.append(text);
+		}
+
+		// print the log file to the CLI
+		void printLogs()
+		{
+			logs.print();
+		}
+
+		// Return a list of the log file
+		std::vector<std::string> getLogList()
+		{
+			return logs.getList();
 		}
 
 	private:
@@ -181,6 +194,8 @@ namespace CLI
 		std::vector<procces*> processes{}; // A list of all processes
 
 		History history; // The history of the commands
+
+		File logs; // A file of that gathers all the logs
 
 		// * Puts something on the console with the pre- & post-line
 		void toConsole(std::string text, bool newline = false)

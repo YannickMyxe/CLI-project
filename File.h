@@ -104,6 +104,12 @@ public:
 			utils::print("Start index must be smaller than the End index.");
 	}
 
+	// Return a list of the file
+	std::vector<std::string> getList()
+	{
+		return read();
+	}
+
 private:
 	std::string filename;
 	std::string storageLocation;
